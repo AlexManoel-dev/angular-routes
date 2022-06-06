@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 
 const alunosRoutes: Routes = [
     {
-        path: 'alunos',
+        path: '',
         component: AlunosComponent,
         // Rotas filhas(podem ser exibidas juntamente com a rota pai)
         children: [
