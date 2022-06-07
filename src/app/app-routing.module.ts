@@ -1,3 +1,5 @@
+import { AlunosGuard } from './guards/alunos.guard';
+import { CursosGuard } from './guards/cursos.guard';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -21,12 +23,17 @@ const routes: Routes = [
   {
     path: 'cursos',
     loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canActivateChild: [CursosGuard]
   },
   {
     path: 'alunos',
     loadChildren: () => import('./alunos/alunos.module').then(m => m.AlunosModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    // Se você quiser incluir o guard com a rota pai, faça aqui
+    // Senão, coloque o cantActiveteChild dentro do arquivo de routes do escopo que deseja
+    // E então, será executado somente quando a rota filha ser chamada
+    canActivateChild: [AlunosGuard]
   }
 ];
 
