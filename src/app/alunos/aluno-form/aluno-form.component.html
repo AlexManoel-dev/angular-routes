@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput2">Nome</label>
-        <input [(ngModel)]="aluno.nome" name="nome" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+        <input [(ngModel)]="aluno.nome" name="nome" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" (input)="onInput()">
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput3">Email</label>
